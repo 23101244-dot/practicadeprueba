@@ -30,7 +30,7 @@ fun CalculadoraConsumoAgua(navController: NavController) {
         Text("Consumo de Agua", style = MaterialTheme.typography.titleLarge)
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Campo para Nombre
+
         OutlinedTextField(
             value = nombre,
             onValueChange = { nombre = it },
@@ -38,7 +38,7 @@ fun CalculadoraConsumoAgua(navController: NavController) {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Campo para Peso
+
         OutlinedTextField(
             value = peso,
             onValueChange = { peso = it },
@@ -50,7 +50,7 @@ fun CalculadoraConsumoAgua(navController: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
         Text("Selecciona tu género:")
 
-        // Botones de radio para Género
+
         opcionesGenero.forEach { opcion ->
             Row(verticalAlignment = Alignment.CenterVertically) {
                 RadioButton(
@@ -63,17 +63,17 @@ fun CalculadoraConsumoAgua(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Botón Calcular
+
         Button(onClick = {
             val pesoNum = peso.toFloatOrNull()
 
-            // Validaciones
+
             if (nombre.isBlank() || peso.isBlank()) {
                 Toast.makeText(contexto, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
             } else if (pesoNum == null || pesoNum < 5f || pesoNum > 200f) {
                 Toast.makeText(contexto, "El peso debe estar entre 5 y 200", Toast.LENGTH_SHORT).show()
             } else {
-                // Cálculo
+
                 val factor = when (genero) {
                     "Masculino" -> 1.02
                     "Femenino" -> 1.01
@@ -89,14 +89,14 @@ fun CalculadoraConsumoAgua(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Texto del resultado
+
         if (resultado.isNotEmpty()) {
             Text(resultado, style = MaterialTheme.typography.bodyLarge)
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Botón para regresar al menú
+
         Button(onClick = { navController.navigate("menu") }) {
             Text("Regresar al menú principal")
         }

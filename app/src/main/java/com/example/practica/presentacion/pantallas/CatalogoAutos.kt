@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 
-// 1. Modelo de datos
+
 data class AutoModel(
     val marca: String,
     val modelo: String,
@@ -34,7 +34,7 @@ data class AutoModel(
     val imageUrl: String
 )
 
-// 2. Lista Mockeada (fuera de la función principal)
+
 val mockAutos = listOf(
     AutoModel("Ferrari", "F8", 280000.0, "https://www.themilliardaire.com/en/wp-content/uploads/2013/08/Ferrari-458-Speciale-Francfort-31.jpg"),
     AutoModel("Porsche", "911", 110000.0, "https://www.shutterstock.com/image-vector/luxury-premium-realistic-sedan-coupe-260nw-2264894613.jpg"),
@@ -45,7 +45,7 @@ val mockAutos = listOf(
 
 @Composable
 fun CatalogoAutos(navController: NavController) {
-    // Calculamos el costo total sumando los precios
+
     val costoTotal = mockAutos.sumOf { it.precio }
 
     Column(
@@ -59,7 +59,7 @@ fun CatalogoAutos(navController: NavController) {
         Text("Catálogo de Autos", style = MaterialTheme.typography.titleLarge)
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Lista usando weight(1f) para que no empuje el botón fuera de la pantalla
+
         LazyColumn(modifier = Modifier.weight(1f)) {
             items(mockAutos) { auto ->
                 Card(

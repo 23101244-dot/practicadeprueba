@@ -33,7 +33,7 @@ fun ActividadFisica(navController: NavController) {
         Text("Actividad Física", style = MaterialTheme.typography.titleLarge)
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Menú desplegable para Actividad
+
         ExposedDropdownMenuBox(
             expanded = expandido,
             onExpandedChange = { expandido = !expandido }
@@ -64,7 +64,7 @@ fun ActividadFisica(navController: NavController) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Campo para Duración
+
         OutlinedTextField(
             value = duracion,
             onValueChange = { duracion = it },
@@ -89,17 +89,17 @@ fun ActividadFisica(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Botón Calcular
+
         Button(onClick = {
             val duracionNum = duracion.toIntOrNull()
 
-            // Validaciones
+
             if (actividad.isBlank() || duracion.isBlank() || intensidad.isBlank()) {
                 Toast.makeText(contexto, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
             } else if (duracionNum == null || duracionNum <= 0) {
                 Toast.makeText(contexto, "La duración debe ser entera positiva", Toast.LENGTH_SHORT).show() //
             } else {
-                // Cálculo de calorías
+
                 val calPorMin = when (actividad) {
                     "Correr" -> 10
                     "Caminar" -> 5
@@ -131,7 +131,7 @@ fun ActividadFisica(navController: NavController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Botón para regresar
+
         Button(onClick = { navController.navigate("menu") }) {
             Text("Regresar al menú principal")
         }
